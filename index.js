@@ -1,6 +1,5 @@
-// 'use strict';
+
 async function PosNeg(text){
-    // console.log(text);
     const url="https://sentim-api.herokuapp.com/api/v1/";
     const response=await fetch(url, {method:"POST",
 headers:{
@@ -14,8 +13,6 @@ if(!response.ok){
     const error=result.data[0];
     throw Error(error.field+" "+error.message);
 }
-console.log(JSON.stringify(result.result.polarity))
-console.log(JSON.stringify(result.result.type))
 let typeOfResult=JSON.stringify(result.result.type)
 let polarityOfResult=JSON.stringify(result.result.polarity)
 
