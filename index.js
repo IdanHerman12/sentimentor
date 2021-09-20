@@ -31,10 +31,11 @@ PosNeg(text)
 
 function colorOfEmotion(num){
     const answer=document.getElementById("answer")
+    answer.style="color:black"
     if(num>0){
         answer.style="color:blue"
     }
-    else (num<0)= answer.style="color:red"
+    else if(num<0) answer.style="color:red"
 }
 
 document.getElementById("result").addEventListener("click",clickEvent)
