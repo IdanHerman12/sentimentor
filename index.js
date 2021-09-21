@@ -1,5 +1,8 @@
 
 async function PosNeg(text){
+    document.getElementById("answer").innerText=""
+    if(text==='')alert("textarea empty")
+    else{
     const url="https://sentim-api.herokuapp.com/api/v1/";
     const response=await fetch(url, {method:"POST",
 headers:{
@@ -20,6 +23,7 @@ const answer=document.getElementById("answer")
 colorOfEmotion(polarityOfResult)
 answer.innerText=`Your Result is:${typeOfResult}`
 }   
+}
 
 function clickEvent(){
 const text=document.getElementById("text").value
