@@ -11,7 +11,6 @@ async function PosNeg(text){
     answer.style="color:red";
     }
     else{
-        // document.getElementById("loader").style.display="block";
     const url="https://sentim-api.herokuapp.com/api/v1/";
     const response=await fetch(url, {method:"POST",
 headers:{
@@ -23,6 +22,7 @@ body:JSON.stringify({"text":text}),
 const result= await response.json();
 if(!response.ok){
     const error=result.data[0];
+    document.getElementById("loader").style.display="none";
    answer.innerText=`${error.field}+" "+${error.message}`;
     answer.style="color:red";
     throw Error(error.field+" "+error.message);
@@ -55,7 +55,3 @@ function colorOfEmotion(num){
 }
 
 document.getElementById("result").addEventListener("click",clickEvent)
-function showResult(text){
-    document.getElementById("loader").style.display="block";
-let show=setTimeout(PosNeg(text),3000);
-}
